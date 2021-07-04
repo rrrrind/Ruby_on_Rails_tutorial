@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       
     else
       # エラーメッセージ(フラッシュメッセージ)
-      flash[:danger] = 'Invalid email/password combination'
+      # flash.nowはリクエストが来るとフラッシュメッセージが自動で消える
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
